@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace SpeedType.ConsoleDemo
 {
-    internal class UserInput
+    internal class UserInput : IUserInput
     {
+        public void ChangeInputColor(ConsoleColor consoleColor)
+        {
+            Console.ForegroundColor = consoleColor;
+        }
     }
 }
