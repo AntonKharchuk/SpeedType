@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpeedType
+namespace SpeedType.ConsoleDemo
 {
-    public interface IUserInput
+    internal class UserInput
     {
-        void ChangeInputColor(ConsoleColor consoleColor);
     }
 }
