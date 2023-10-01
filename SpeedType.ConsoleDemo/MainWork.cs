@@ -41,7 +41,7 @@ namespace SpeedType.ConsoleDemo
 
             stopwatch.Start();
 
-            while (text!=userText.Trim().ToLower())
+            while (text!=userText.ToLower())
             {
                 var currentKey = Console.ReadKey(true);
 
@@ -63,7 +63,7 @@ namespace SpeedType.ConsoleDemo
                     userText += currentKey.KeyChar;
                 }
 
-                if (text.StartsWith(userText.Trim().ToLower()))
+                if (text.StartsWith(userText.ToLower()))
                     _userInput.ChangeInputColor(ConsoleColor.White);
                 else
                     _userInput.ChangeInputColor(ConsoleColor.Red);
