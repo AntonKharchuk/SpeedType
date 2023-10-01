@@ -10,11 +10,11 @@
             _defaultWord = "Mama";
             _defaultText = "I love mama";
         }
-        string GetWord()
+        public string GetWord()
         {
             return _defaultWord;
         }
-        string GetText()
+        public string GetText()
         {
             return _defaultText;
         }
