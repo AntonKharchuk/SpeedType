@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedType", "SpeedType\SpeedType.csproj", "{04F2E233-1368-435D-B166-90EDA623CCFA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeedType.ConsoleDemo", "SpeedType.ConsoleDemo\SpeedType.ConsoleDemo.csproj", "{02947C80-A9C9-4093-A878-1F9F40EA445E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{04F2E233-1368-435D-B166-90EDA623CCFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04F2E233-1368-435D-B166-90EDA623CCFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04F2E233-1368-435D-B166-90EDA623CCFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02947C80-A9C9-4093-A878-1F9F40EA445E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02947C80-A9C9-4093-A878-1F9F40EA445E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02947C80-A9C9-4093-A878-1F9F40EA445E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02947C80-A9C9-4093-A878-1F9F40EA445E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
