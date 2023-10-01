@@ -13,7 +13,7 @@ var host = Host.CreateDefaultBuilder(args)
            })
            .Build();
 
-Console.WriteLine("Let's, type!\n");
+Console.WriteLine("Let's type!\n");
 
 var userInput = host.Services.GetRequiredService<IUserInput>();
 
