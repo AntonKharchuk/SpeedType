@@ -19,9 +19,12 @@ var userInput = host.Services.GetRequiredService<IUserInput>();
 
 var generator = new TextGenerator();
 
-var mainWork = new MainWork(generator.GetWord, userInput);
+var mainWork = new MainWork(generator.GetText, userInput);
 
-mainWork.Run();
+for (int i = 0; i < 10; i++)
+{
+    mainWork.Run();
+}
 
 Console.WriteLine("End!");
 
