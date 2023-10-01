@@ -33,7 +33,9 @@ namespace SpeedType.ConsoleDemo
         {
             string userText = string.Empty;
 
-            while (text!=userText)
+            text = text.Trim().ToLower();
+
+            while (text!=userText.Trim().ToLower())
             {
                 var currentKey = Console.ReadKey(true);
 
