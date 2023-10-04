@@ -63,10 +63,17 @@ namespace SpeedType.ConsoleDemo
                     userText += currentKey.KeyChar;
                 }
 
-                if (text.StartsWith(userText.ToLower()))
+                if (text.StartsWith(userText.ToLower())) 
                     _userInput.ChangeInputColor(ConsoleColor.White);
                 else
+                {
                     _userInput.ChangeInputColor(ConsoleColor.Red);
+                    if (currentKey.Key is ConsoleKey.Spacebar)
+                    {
+                        Console.Write('_');
+                        continue;
+                    }
+                }
 
                 Console.Write(currentKey.KeyChar);
             }
