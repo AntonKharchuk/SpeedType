@@ -21,7 +21,7 @@ var generator = new TextGenerator();
 
 var mainWork = new MainWork(generator.GetText, userInput);
 
-for (int i = 0; i < 10; i++)
+for (int i = 0; i < 30; i++)
 {
     mainWork.Run();
 }
