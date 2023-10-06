@@ -31,10 +31,14 @@ namespace SpeedType
 
             int index;
 
-            for (int i = 0; i < 10; i++)
+            while (result.Length<60|| result.Length > 70)
             {
-                index = random.Next(1000);
-                result += (_listOfWords.Value[index]+" ");
+                result = string.Empty;
+                for (int i = 0; i < 10; i++)
+                {
+                    index = random.Next(1000);
+                    result += (_listOfWords.Value[index] + " ");
+                }
             }
             return result;
         }
