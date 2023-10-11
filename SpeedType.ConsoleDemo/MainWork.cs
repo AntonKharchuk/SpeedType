@@ -39,7 +39,7 @@ namespace SpeedType.ConsoleDemo
         {
             string userText = string.Empty;
 
-            text = text.Trim().ToLower();
+            text = text.ToLower();
 
             Stopwatch stopwatch = new Stopwatch();
 
@@ -106,14 +106,14 @@ namespace SpeedType.ConsoleDemo
 
         public void ShowStatistics()
         {
-            Console.WriteLine("| Try | Duration (s.ms) |");
+            Console.WriteLine("| Try |  Duration (s.)  |");
             Console.WriteLine("|-----|-----------------|");
 
             for (int i = 0; i < _typingDuration.Count; i++)
             {
                 if (_typingDuration[i] != TimeSpan.MinValue)
                 {
-                    Console.WriteLine($"| {i,-3} | {_typingDuration[i].TotalSeconds,03:F4} s.{_typingDuration[i].Milliseconds,03} ms |");
+                    Console.WriteLine($"| {i,-3} |     {_typingDuration[i].TotalSeconds, 5 :F3} s.    |");
                 }
                 else
                 {
