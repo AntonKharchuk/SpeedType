@@ -15,11 +15,15 @@ namespace SpeedType.ConsoleDemo
 
         private IUserInput _userInput;
 
+        private List<TimeSpan> _typingDuration;
+
         public MainWork(Func<string> getTextToType, IUserInput userInput)
         {
             _getTextToType = getTextToType;
 
             _userInput = userInput;
+
+            _typingDuration = new List<TimeSpan>(); 
         }
 
         public async void Run()
@@ -45,8 +49,11 @@ namespace SpeedType.ConsoleDemo
             {
                 var currentKey = Console.ReadKey(true);
 
-                if (currentKey.Key is ConsoleKey.Escape) 
+                if (currentKey.Key is ConsoleKey.Escape) { 
+                    _userInput.ChangeInputColor(ConsoleColor.White);
                     break;
+                }
+
 
                 if (currentKey.Modifiers is ConsoleModifiers.Control && currentKey.Key is ConsoleKey.Backspace)
                     continue;
@@ -83,10 +90,36 @@ namespace SpeedType.ConsoleDemo
 
             TimeSpan elapsedTime = stopwatch.Elapsed;
 
+            AddDuration(elapsedTime);
+
             Console.WriteLine($"time: {elapsedTime.Seconds}:{elapsedTime.Milliseconds}");
             Console.WriteLine();
+        }
+        
+        private void AddDuration(TimeSpan timeSpan)
+        {
+            if (timeSpan.TotalMinutes > 1 || timeSpan.TotalSeconds < 10)
+                _typingDuration.Add(TimeSpan.MinValue);
+            else
+                _typingDuration.Add(timeSpan);
+        }
 
+        public void ShowStatistics()
+        {
+            Console.WriteLine("| Try | Duration (s.ms) |");
+            Console.WriteLine("|-----|-----------------|");
 
+            for (int i = 0; i < _typingDuration.Count; i++)
+            {
+                if (_typingDuration[i] != TimeSpan.MinValue)
+                {
+                    Console.WriteLine($"| {i,-3} | {_typingDuration[i].TotalSeconds,03:F4} s.{_typingDuration[i].Milliseconds,03} ms |");
+                }
+                else
+                {
+                    Console.WriteLine($"| {i,-3} |      -----      |");
+                }
+            }
         }
 
     }

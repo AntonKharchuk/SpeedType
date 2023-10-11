@@ -26,5 +26,8 @@ for (int i = 0; i < 30; i++)
     mainWork.Run();
 }
 
-Console.WriteLine("End!");
+mainWork.ShowStatistics();
+
+Console.ReadLine();
+
 
