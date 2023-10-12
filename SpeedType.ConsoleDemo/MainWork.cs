@@ -43,11 +43,17 @@ namespace SpeedType.ConsoleDemo
 
             Stopwatch stopwatch = new Stopwatch();
 
-            stopwatch.Start();
+            var stopwatchIsStarted = false;
 
             while (text!=userText.ToLower())
             {
                 var currentKey = Console.ReadKey(true);
+
+                if (!stopwatchIsStarted)
+                {
+                    stopwatch.Start();
+                    stopwatchIsStarted = true;
+                }
 
                 if (currentKey.Key is ConsoleKey.Escape) { 
                     _userInput.ChangeInputColor(ConsoleColor.White);
