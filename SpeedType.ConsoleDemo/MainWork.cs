@@ -23,7 +23,7 @@ namespace SpeedType.ConsoleDemo
 
             _userInput = userInput;
 
-            _typingDuration = new List<TimeSpan>(); 
+            _typingDuration = new List<TimeSpan>();
         }
 
         public async void Run()
@@ -45,7 +45,7 @@ namespace SpeedType.ConsoleDemo
 
             var stopwatchIsStarted = false;
 
-            while (text!=userText.ToLower())
+            while (text != userText.ToLower())
             {
                 var currentKey = Console.ReadKey(true);
 
@@ -55,7 +55,8 @@ namespace SpeedType.ConsoleDemo
                     stopwatchIsStarted = true;
                 }
 
-                if (currentKey.Key is ConsoleKey.Escape) { 
+                if (currentKey.Key is ConsoleKey.Escape)
+                {
                     _userInput.ChangeInputColor(ConsoleColor.White);
                     break;
                 }
@@ -66,7 +67,7 @@ namespace SpeedType.ConsoleDemo
 
                 if ((currentKey.Key is ConsoleKey.Backspace))
                 {
-                    if (userText.Length>0)
+                    if (userText.Length > 0)
                     {
                         userText = userText.Substring(0, userText.Length - 1);
                     }
@@ -76,7 +77,7 @@ namespace SpeedType.ConsoleDemo
                     userText += currentKey.KeyChar;
                 }
 
-                if (text.StartsWith(userText.ToLower())) 
+                if (text.StartsWith(userText.ToLower()))
                     _userInput.ChangeInputColor(ConsoleColor.White);
                 else
                 {
@@ -101,13 +102,10 @@ namespace SpeedType.ConsoleDemo
             Console.WriteLine($"time: {elapsedTime.Seconds}:{elapsedTime.Milliseconds}");
             Console.WriteLine();
         }
-        
+
         private void AddDuration(TimeSpan timeSpan)
         {
-            if (timeSpan.TotalMinutes > 1 || timeSpan.TotalSeconds < 10)
-                _typingDuration.Add(TimeSpan.MinValue);
-            else
-                _typingDuration.Add(timeSpan);
+            _typingDuration.Add(timeSpan);
         }
 
         public void ShowStatistics()
@@ -115,17 +113,34 @@ namespace SpeedType.ConsoleDemo
             Console.WriteLine("| Try |  Duration (s.)  |");
             Console.WriteLine("|-----|-----------------|");
 
+            var minTime = double.MaxValue;
+
+            var escClickDuration = new TimeSpan();
+            escClickDuration = escClickDuration.Add(TimeSpan.FromSeconds(10));
+
             for (int i = 0; i < _typingDuration.Count; i++)
             {
-                if (_typingDuration[i] != TimeSpan.MinValue)
+                if (_typingDuration[i] > escClickDuration)
                 {
-                    Console.WriteLine($"| {i,-3} |     {_typingDuration[i].TotalSeconds, 5 :F3} s.    |");
+                    Console.WriteLine($"| {i,-3} |     {_typingDuration[i].TotalSeconds,5:F3} s.    |");
+                    if (minTime > _typingDuration[i].TotalSeconds)
+                        minTime = _typingDuration[i].TotalSeconds;
                 }
                 else
                 {
                     Console.WriteLine($"| {i,-3} |      -----      |");
                 }
             }
+
+            Console.WriteLine("|-----|-----------------|");
+            Console.WriteLine();
+            if (minTime is double.MaxValue)
+            {
+                Console.WriteLine($"Best time: ----- s.");
+            }
+            else
+                Console.WriteLine($"Best time: {minTime} s.");
+
         }
 
     }
