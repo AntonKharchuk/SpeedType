@@ -98,8 +98,11 @@ namespace SpeedType.ConsoleDemo
             TimeSpan elapsedTime = stopwatch.Elapsed;
 
             AddDuration(elapsedTime);
-
-            Console.WriteLine($"time: {elapsedTime.Seconds}:{elapsedTime.Milliseconds}");
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine($"\t\t\ttime: {elapsedTime.Seconds}:{elapsedTime.Milliseconds}");
             Console.WriteLine();
         }
 
@@ -110,8 +113,8 @@ namespace SpeedType.ConsoleDemo
 
         public void ShowStatistics()
         {
-            Console.WriteLine("| Try |  Duration (s.)  |");
-            Console.WriteLine("|-----|-----------------|");
+            Console.WriteLine("| Try |   Duration (s.)  |");
+            Console.WriteLine("|-----|------------------|");
 
             var minTime = double.MaxValue;
 
@@ -128,15 +131,15 @@ namespace SpeedType.ConsoleDemo
                 }
                 else
                 {
-                    Console.WriteLine($"| {i,-3} |      -----      |");
+                    Console.WriteLine($"| {i,-3} |      ------      |");
                 }
             }
 
-            Console.WriteLine("|-----|-----------------|");
+            Console.WriteLine("|-----|------------------|");
             Console.WriteLine();
             if (minTime is double.MaxValue)
             {
-                Console.WriteLine($"Best time: ----- s.");
+                Console.WriteLine($"Best time: ------ s.");
             }
             else
                 Console.WriteLine($"Best time: {minTime} s.");

@@ -18,6 +18,8 @@ Console.WriteLine("Let's type!\n");
 var userInput = host.Services.GetRequiredService<IUserInput>();
 
 var generator = new TextGenerator();
+generator.AddComputerTerms();
+generator.Add1000CummonWords();
 
 var mainWork = new MainWork(generator.GetText, userInput);
 
