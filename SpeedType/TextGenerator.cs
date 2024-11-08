@@ -29,6 +29,11 @@ namespace SpeedType
                "technology", "anti-virus", "application", "audio", "CPU", "cursor", "cellphone", "clipart", "database", "smartphone", "engine", "electronic", "digital", "domain", "e-mail", "file", "firewall", "font", "format", "hacker", "hardware", "software", "home page", "host", "HD (High Definition)", "internet", "jpeg", "mpeg", "MP3", "keyboard", "links", "monitor", "mouse", "multimedia", "network", "online", "offline", "password", "interface", "IP", "printer", "program", "LAN", "modem", "USB", "telescope", "URL", "camcorder", "id (identity)", "user name", "speaker", "security", "server", "telecommunication", "text", "video", "virus", "visual", "key", "camera", "web address", "web browser", "fax machine", "radio", "television", "resize", "zoom", "calculator", "data", "blog", "bookmark", "capture", "video camera", "connection", "hard disc", "display", "freeware", "graphics", "icons", "information", "input", "output", "receiver", "spam mail", "laptop", "load", "operating system", "messaging", "social network", "remote", "satellite", "screen", "script", "search engine", "share", "spy-ware", "surf", "technology", "update", "user-friendly", "virtual", "web page", "wireless", "control", "tablet", "projector", "maintenance", "upgrade", "shortcut", "tabs", "wi-fi", "copyright", "trademark", "register", "serial number"
            });
         }
+        public void AddCastomWords(IEnumerable<string> words)
+        {
+            _listOfWords.AddRange(words);
+        }
+
 
 
         public string GetWord()

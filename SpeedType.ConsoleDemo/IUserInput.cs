@@ -10,4 +10,8 @@ namespace SpeedType
     {
         void ChangeInputColor(ConsoleColor consoleColor);
     }
+    public interface ILemuelInput:IUserInput
+    {
+        public IEnumerable<string> GetWords();
+    }
 }

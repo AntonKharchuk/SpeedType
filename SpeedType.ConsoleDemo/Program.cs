@@ -8,18 +8,17 @@ using SpeedType.ConsoleDemo;
 var host = Host.CreateDefaultBuilder(args)
            .ConfigureServices((hostContext, services) =>
            {
-               services.AddSingleton<IUserInput, UserInput>();
+               services.AddSingleton<ILemuelInput, LemuelWordsInput>();
                services.AddSingleton<MainWork>();
            })
            .Build();
 
-Console.WriteLine("Let's type!\n");
+var userInput = host.Services.GetRequiredService<ILemuelInput>();
 
-var userInput = host.Services.GetRequiredService<IUserInput>();
+var words = userInput.GetWords();
 
 var generator = new TextGenerator();
-generator.AddComputerTerms();
-generator.Add1000CummonWords();
+generator.AddCastomWords(words);
 
 var mainWork = new MainWork(generator.GetText, userInput);
 
