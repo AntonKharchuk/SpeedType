@@ -20,6 +20,9 @@ var words = userInput.GetWords();
 var generator = new TextGenerator();
 generator.AddCastomWords(words);
 
+if (generator.IsListEmpty)
+    return;
+
 var mainWork = new MainWork(generator.GetText, userInput);
 
 for (int i = 0; i < 30; i++)

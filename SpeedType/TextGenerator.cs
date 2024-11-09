@@ -14,6 +14,9 @@ namespace SpeedType
             random = new Random();
             _listOfWords = new List<string>();
         }
+        public bool IsListEmpty => _listOfWords.Count == 0;
+       
+
         public void Add1000CummonWords()
         {
             _listOfWords.AddRange(new string[]
@@ -53,7 +56,7 @@ namespace SpeedType
             while (result.Length<60|| result.Length > 70)
             {
                 result = string.Empty;
-                for (int i = 0; i < 10; i++)
+                while (result.Length < 60)
                 {
                     index = random.Next(_listOfWords.Count);
                     result += (_listOfWords[index] + " ");
